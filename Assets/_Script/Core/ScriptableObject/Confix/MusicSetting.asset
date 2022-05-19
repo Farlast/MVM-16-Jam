@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 51e4da0065a967447a11800fc2fb0295, type: 3}
+  m_Name: MusicSetting
+  m_EditorClassIdentifier: 
+  volume: 1
+  pitch: 1
+  spatialBlend: 0
+  loop: 1
+  OutputAudioMixerGroup: {fileID: 8890841653947119142, guid: 2467783394e91834bba3167012e4ba56, type: 2}

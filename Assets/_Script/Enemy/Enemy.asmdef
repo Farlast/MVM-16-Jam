@@ -1,0 +1,16 @@
+{
+    "name": "Enemy",
+    "rootNamespace": "Script.Enemy",
+    "references": [
+        "GUID:812aa20d336c6a142b6744c6167f11ca"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

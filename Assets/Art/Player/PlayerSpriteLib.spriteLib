@@ -1,0 +1,63 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &1
+MonoBehaviour:
+  m_ObjectHideFlags: 36
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a5e6fedc2472449cead18ef23b5cb30d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Library:
+  - m_Name: Eyes
+    m_Hash: 120101800
+    m_CategoryList: []
+    m_OverrideEntries:
+    - m_Name: MadEyes
+      m_Hash: 835092993
+      m_Sprite: {fileID: -6243871850559184624, guid: 19c7f1c782ed6dc49a9b1c08a1b9be71, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -6243871850559184624, guid: 19c7f1c782ed6dc49a9b1c08a1b9be71, type: 3}
+    - m_Name: Eye
+      m_Hash: 1245036881
+      m_Sprite: {fileID: 3465168612416094273, guid: 19c7f1c782ed6dc49a9b1c08a1b9be71, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 3465168612416094273, guid: 19c7f1c782ed6dc49a9b1c08a1b9be71, type: 3}
+    - m_Name: SadEye
+      m_Hash: -1631912688
+      m_Sprite: {fileID: -4840209622114501002, guid: 19c7f1c782ed6dc49a9b1c08a1b9be71, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -4840209622114501002, guid: 19c7f1c782ed6dc49a9b1c08a1b9be71, type: 3}
+    m_FromMain: 0
+    m_EntryOverrideCount: 3
+  - m_Name: Mouth
+    m_Hash: 1594127251
+    m_CategoryList: []
+    m_OverrideEntries:
+    - m_Name: kaa
+      m_Hash: -40831237
+      m_Sprite: {fileID: -1779945214231760943, guid: 19c7f1c782ed6dc49a9b1c08a1b9be71, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -1779945214231760943, guid: 19c7f1c782ed6dc49a9b1c08a1b9be71, type: 3}
+    - m_Name: o
+      m_Hash: 252678980
+      m_Sprite: {fileID: 1842661250197167692, guid: 19c7f1c782ed6dc49a9b1c08a1b9be71, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 1842661250197167692, guid: 19c7f1c782ed6dc49a9b1c08a1b9be71, type: 3}
+    - m_Name: fun
+      m_Hash: 1264168812
+      m_Sprite: {fileID: 4834669242226119210, guid: 19c7f1c782ed6dc49a9b1c08a1b9be71, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: 4834669242226119210, guid: 19c7f1c782ed6dc49a9b1c08a1b9be71, type: 3}
+    - m_Name: Upset
+      m_Hash: 1153166324
+      m_Sprite: {fileID: -2436126231051735674, guid: 19c7f1c782ed6dc49a9b1c08a1b9be71, type: 3}
+      m_FromMain: 0
+      m_SpriteOverride: {fileID: -2436126231051735674, guid: 19c7f1c782ed6dc49a9b1c08a1b9be71, type: 3}
+    m_FromMain: 0
+    m_EntryOverrideCount: 4
+  m_PrimaryLibraryGUID: 77ca52a975908e246aea07f73536b4e2
