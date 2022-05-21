@@ -8,7 +8,7 @@ namespace Script.Player
         {
             _isRootState = true;
         }
-
+        bool velocitydown;
         public override void CheckSwitchState()
         {
             if (Ctx.IsGrounded)
@@ -49,6 +49,7 @@ namespace Script.Player
 
         public override void OnStateExit()
         {
+            Ctx.Animator.SetBool("Fall", false);
         }
 
         public override void OnStateFixedUpdate()
@@ -57,6 +58,8 @@ namespace Script.Player
 
         public override void OnStateRun()
         {
+            velocitydown = Ctx.rigidBody2D.velocity.y < 0;
+            Ctx.Animator.SetBool("Fall", velocitydown);
             CheckSwitchState();
         }
     }

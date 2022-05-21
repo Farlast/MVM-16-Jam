@@ -58,7 +58,7 @@ namespace Script.Player
         {
             //Ctx.ResetIframe();
             Ctx.FlipSprite();
-            Ctx.Animator.SetBool("Dashing", false);
+            Ctx.Animator.SetBool("Dash", false);
         }
 
         public override void OnStateRun()

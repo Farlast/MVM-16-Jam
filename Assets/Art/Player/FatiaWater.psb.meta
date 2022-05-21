@@ -11232,7 +11232,7 @@ ScriptedImporter:
   mosaicLayers: 1
   characterMode: 1
   documentPivot: {x: 0, y: 0}
-  documentAlignment: 7
+  documentAlignment: 0
   importHiddenLayers: 0
   layerMappingOption: 0
   generatePhysicsShape: 0

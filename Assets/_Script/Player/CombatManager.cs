@@ -10,9 +10,10 @@ namespace Script.Player
         Lance,
         Wire
     } 
-    public class CombatManager : MonoBehaviour
+    public class CombatManager : MonoBehaviour,IDamageable
     {
         private HealthSystem healthSystem;
+        [SerializeField] private HealthEventChannel healthEvent;
 
         [Header("[Attack & HitBox]")]
         [SerializeField] private LayerMask attackLayer;
@@ -39,7 +40,11 @@ namespace Script.Player
             rigidBody2D = GetComponent<Rigidbody2D>();
             GetHit = false;
         }
-        
+        private void Start()
+        {
+            Status.health = Status.MaxHealth;
+            healthEvent?.RiseEvent(healthSystem);
+        }
         public AttackType SwicthAttackType()
         {
             switch (CurrentAttackType)
@@ -69,6 +74,7 @@ namespace Script.Player
             
             if (TargetToDamage == null) return;
             //bool hitEnemy = false;
+            
             for (int i = 0; i < TargetToDamage.Length; i++)
             {
                 IDamageable damageable = TargetToDamage[i].GetComponent<IDamageable>();
@@ -87,13 +93,17 @@ namespace Script.Player
             if (Invincible) return;
 
             //CameraManager.Instance.ScreenShake(1f, 0.3f, 0.2f);
-
             Status.Health = healthSystem.Damage(damage);
+
             GetHit = true;
             PrintDamage(damage);
             StartCoroutine(MakeInvincible(1f));
             HandleTakeKnockback(damage);
             GetHit = false;
+        }
+        public void Heal(float amount)
+        {
+            Status.Health = healthSystem.Heal(amount);
         }
         void PrintDamage(DamageInfo damage)
         {

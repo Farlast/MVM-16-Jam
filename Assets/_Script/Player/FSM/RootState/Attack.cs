@@ -35,7 +35,6 @@ namespace Script.Player
         }
         private void NextAttack()
         {
-            Debug.Log("cu " + comboCount);
             ResetTimer();
             switch (comboCount)
             {

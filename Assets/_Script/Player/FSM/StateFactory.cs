@@ -18,7 +18,8 @@ namespace Script.Player
             HoldAttack,
             Airborn,
             CastSkill,
-            WallSliding
+            WallSliding,
+            SwitchWeapon
         }
 
         public StateFactory(PlayerBase context)
@@ -38,6 +39,7 @@ namespace Script.Player
             _stateDictionary.Add(States.Airborn, new Airborn(_context, this));
             _stateDictionary.Add(States.CastSkill, new CastSkill(_context, this));
             _stateDictionary.Add(States.WallSliding, new WallSliding(_context, this));
+            _stateDictionary.Add(States.SwitchWeapon, new SwitchWeapon(_context, this));
         }
 
         private static readonly Dictionary<States, State> _stateDictionary = new Dictionary<States, State>();
@@ -55,6 +57,7 @@ namespace Script.Player
         public State HoldAttack() => GetState(States.HoldAttack);
         public State CastSkill() => GetState(States.CastSkill);
         public State WallSliding() => GetState(States.WallSliding);
+        public State SwitchWeapon() => GetState(States.SwitchWeapon);
         private State GetState(States stateName)
         {
             if (_stateDictionary.TryGetValue(stateName, out var state)) return state;

@@ -3,7 +3,6 @@ public class HealthSystem
 {
     public event EventHandler Ondamage;
     public event EventHandler OnHealed;
-    public event EventHandler OnPoisedHealed;
 
     private float Health;
     private float MaxHealth;
@@ -39,13 +38,7 @@ public class HealthSystem
         OnHealed?.Invoke(this, EventArgs.Empty);
         return Health;
     }
-    public virtual float PoiseRegen(float amount)
-    {
-        Poised += amount;
-        if (Poised > MaxPoised) Poised = MaxPoised;
-        OnPoisedHealed?.Invoke(this, EventArgs.Empty);
-        return Poised;
-    }
+ 
     public float GetHealthNormalized()
     {   //   get % health
         return Health/MaxHealth;

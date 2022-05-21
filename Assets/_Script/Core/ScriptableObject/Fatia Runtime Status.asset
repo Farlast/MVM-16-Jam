@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9bf667da8d576c940898956f854ddaa1, type: 3}
   m_Name: Fatia Runtime Status
   m_EditorClassIdentifier: 
-  health: 5
+  health: 1
   MaxHealth: 5
   MaxMana: 5
   mana: 4
@@ -25,7 +25,3 @@ MonoBehaviour:
   DashSpeed: 40
   MaxDashTime: 1
   DashCooldown: 0.4
-  AttackSpeed: 1
-  Damage: 1
-  Impact: 1
-  Prefab: {fileID: 0}

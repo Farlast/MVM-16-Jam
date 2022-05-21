@@ -26,7 +26,7 @@ namespace Script.Player
         public override void OnStateEnter()
         {
             Ctx.rigidBody2D.velocity = Vector2.zero;
-            Ctx.combatManager.SwicthAttackType();
+            Debug.Log("cast");
             Ctx.StartCoroutine(TimeCount());
         }
 

@@ -43,7 +43,11 @@ namespace Script.Player
             {
                 SwitchState(_factory.CastSkill());
             }
-            if(Ctx.Status.Health <= 0)
+            if (Ctx.InputMapPress.SwicthWeapon)
+            {
+                SwitchState(_factory.SwitchWeapon());
+            }
+            if (Ctx.Status.Health <= 0)
             {
                 SwitchState(_factory.Die());
             }

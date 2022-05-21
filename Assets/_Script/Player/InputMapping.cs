@@ -22,6 +22,7 @@ namespace Script.Player
         [SerializeField] private float jumpBufferingTime = 0.4f;
         [SerializeField] private bool skill1;
         [SerializeField] private bool skill2;
+        [SerializeField] private bool swicthWeapon;
         [field:SerializeField] public int LatesDirection { get; private set; }
 
         private bool startJob;
@@ -42,6 +43,7 @@ namespace Script.Player
         public bool RawAttackInput { get => attackInput; private set => attackInput = value; }
         public bool SkillFirst { get => skill1; private set => skill1 = value; }
         public bool SkillSecond { get => skill2; private set => skill2 = value; }
+        public bool SwicthWeapon { get => swicthWeapon; private set => swicthWeapon = value; }
 
         #region OnInput
         public void OnMove(InputValue value)
@@ -89,6 +91,12 @@ namespace Script.Player
             float btnValue = value.Get<float>();
             Skill2Input(btnValue);
         }
+        public void OnSwitchWeapon(InputValue value)
+        {
+            if (!gamePlayState) return;
+            float btnValue = value.Get<float>();
+            SwitchWeaponInput(btnValue);
+        }
         #endregion
 
         #region Setting bool Input
@@ -119,6 +127,11 @@ namespace Script.Player
         {
             // 1 = press ,0 = releass
             SkillSecond = pressValue == 1 ? true : false;
+        }
+        void SwitchWeaponInput(float pressValue)
+        {
+            // 1 = press ,0 = releass
+            swicthWeapon = pressValue == 1 ? true : false;
         }
         void JumpInput(float pressValue)
         {

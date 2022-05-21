@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Script.Player;
 
 namespace Script.Player
 {
@@ -11,7 +12,7 @@ namespace Script.Player
             _isRootState = true;
         }
 
-        private float timeCounter = 0.8f;
+        private float timeCounter = 0.5f;
         private bool countFinish;
 
         public override void CheckSwitchState()
@@ -29,6 +30,20 @@ namespace Script.Player
         {
             Ctx.rigidBody2D.velocity = Vector2.zero;
             Ctx.combatManager.SwicthAttackType();
+            switch (Ctx.combatManager.CurrentAttackType)
+            {
+                case AttackType.Sword:
+                    Ctx.Animator.Play("BlendSword");
+                    break;
+                case AttackType.Lance:
+                    Ctx.Animator.Play("BlendLance");
+                    break;
+                case AttackType.Wire:
+                    Ctx.Animator.Play("BlendSword");
+                    break;
+            }
+
+
             Ctx.StartCoroutine(TimeCount());
         }
 
