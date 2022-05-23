@@ -53,7 +53,7 @@ namespace Script.Player
         [SerializeField] private float eyeRadiusCheck;
         [SerializeField] private LayerMask groundLayer;
         
-        [field: SerializeField] public bool TakeHit { get; private set; }
+        [SerializeField] public bool TakeHit  => combatManager.GetHit;
 
         private void Awake()
         {

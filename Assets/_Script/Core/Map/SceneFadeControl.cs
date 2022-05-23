@@ -27,7 +27,7 @@ namespace Script.Core
         public void FadeIn()
         {
             fadeCanvas.SetActive(true);
-            animator.SetTrigger("fadein");
+            animator.Play("FadeIn");
         }
     }
 }

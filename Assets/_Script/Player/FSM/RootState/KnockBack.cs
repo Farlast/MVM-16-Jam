@@ -38,7 +38,8 @@ namespace Script.Player
         public override void OnStateEnter()
         {
             finishKnockback = false;
-            Ctx.Animator.Play("Knockback");
+            //Ctx.Animator.Play("Knockback");
+            Ctx.StartCoroutine(IKnockBack());
         }
         public override void OnStateRun()
         {
@@ -47,20 +48,19 @@ namespace Script.Player
 
         public override void OnStateExit()
         {
-            Ctx.Animator.SetBool("Attacking", false);
         }
 
         public override void OnStateFixedUpdate()
         {
 
-        }/*
+        }
         IEnumerator IKnockBack()
         {
-            yield return new WaitForFixedUpdate();
             Ctx.rigidBody2D.velocity = Vector2.zero;
-            Ctx.rigidBody2D.AddForce(Ctx.AttackerDirection, ForceMode2D.Impulse);
+            Ctx.rigidBody2D.inertia = 0;
+            Ctx.rigidBody2D.AddForce(Ctx.combatManager.KnockbackTaken, ForceMode2D.Impulse);
             yield return Helpers.GetWait(0.5f);
             finishKnockback = true;
-        }*/
+        }
     }
 }

@@ -134,12 +134,9 @@ namespace Script.Player
         }
         IEnumerator IMove(float dashSpeed,float time)
         {
-            Debug.Log("move");
-           
             var dashTimer = 0f;
-            while (dashTimer <= time && !Ctx.combatManager.GetHit)
+            while (dashTimer <= time && !Ctx.combatManager.GetHit && !Ctx.IsWallAtFront)
             {
-                Debug.Log(dashTimer <= time);
                 Ctx.rigidBody2D.velocity = new Vector2(dashSpeed * Ctx.InputMapPress.LatesDirection, 0);
                 dashTimer += Time.deltaTime * 3;
                 yield return new WaitForFixedUpdate();

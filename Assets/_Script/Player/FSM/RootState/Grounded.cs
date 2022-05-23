@@ -35,21 +35,13 @@ namespace Script.Player
             {
                 SwitchState(_factory.Attack());
             }
-            else if (Ctx.InputMapPress.HoldAttack)
-            {
-                SwitchState(_factory.HoldAttack());
-            }
-            else if (Ctx.InputMapPress.SkillFirst || Ctx.InputMapPress.SkillSecond)
+            else if (Ctx.InputMapPress.SkillFirst && Ctx.combatManager.CanUseSkill())
             {
                 SwitchState(_factory.CastSkill());
             }
-            if (Ctx.InputMapPress.SwicthWeapon)
+            else if(Ctx.InputMapPress.SwicthWeapon)
             {
                 SwitchState(_factory.SwitchWeapon());
-            }
-            if (Ctx.Status.Health <= 0)
-            {
-                SwitchState(_factory.Die());
             }
         }
 

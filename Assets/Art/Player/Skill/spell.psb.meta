@@ -1,0 +1,1019 @@
+fileFormatVersion: 2
+guid: 44361d0587149574a9350d8129269842
+ScriptedImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 2
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+  script: {fileID: 11500000, guid: b2a9591990af98743ba3ff7cf1000886, type: 3}
+  textureImporterSettings:
+    alphaSource: 1
+    mipMapMode: 0
+    enableMipMap: 1
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+    convertToNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    isReadable: 0
+    streamingMipmaps: 1
+    streamingMipmapsPriority: 0
+    vTOnly: 0
+    ignoreMasterTextureLimit: 0
+    nPOTScale: 1
+    sRGBTexture: 1
+    spriteMode: 2
+    spriteExtrude: 1
+    spriteMeshType: 1
+    alignment: 0
+    spritePivot: {x: 0.5, y: 0.5}
+    spritePixelsToUnits: 100
+    spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+    spriteGenerateFallbackPhysicsShape: 0
+    generateCubemap: 6
+    cubemapConvolution: 0
+    seamlessCubemap: 0
+    alphaIsTransparency: 1
+    spriteTessellationDetail: -1
+    textureType: 8
+    textureShape: 1
+    singleChannelComponent: 0
+    flipbookRows: 0
+    flipbookColumns: 0
+    ignorePngGamma: 0
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 0
+    wrapV: 0
+    wrapW: 0
+    normalMap: 0
+    textureFormat: 0
+    maxTextureSize: 0
+    lightmap: 0
+    compressionQuality: 0
+    linearTexture: 0
+    grayScaleToAlpha: 0
+    rGBM: 0
+    cubemapConvolutionSteps: 0
+    cubemapConvolutionExponent: 0
+    maxTextureSizeSet: 0
+    compressionQualitySet: 0
+    textureFormatSet: 0
+    applyGammaDecoding: 0
+  spriteImportData:
+  - name: 
+    originalName: 
+    pivot: {x: 0, y: 0}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 0
+      height: 0
+    spriteID: 
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 0, y: 0}
+  mosaicSpriteImportData: []
+  rigSpriteImportData:
+  - name: s-Heal Effect 3
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 1557
+      y: 4
+      width: 284
+      height: 231
+    spriteID: fec65f972104094418b39378d8c73889
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 1379, y: -180}
+  - name: s-Heal Effect 2
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 1260
+      y: 4
+      width: 289
+      height: 234
+    spriteID: df0e4a05d513a304fa77c9bb6fd84b2c
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 1082, y: -177}
+  - name: s-Heal Effect 1
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 961
+      y: 4
+      width: 291
+      height: 237
+    spriteID: a51f95ff09413ba42a22b50efa4f39ac
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 785, y: -174}
+  - name: s-Blend sword 6
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 1885
+      y: 417
+      width: 142
+      height: 115
+    spriteID: 16854e398a51a924b8674e5a0974f45f
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 1703, y: 236}
+  - name: s-Blend sword 5
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 1545
+      y: 418
+      width: 157
+      height: 115
+    spriteID: 939940688d5cf0b4995a4c137cf0175f
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 1363, y: 237}
+  - name: s-Blend sword 4
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 961
+      y: 500
+      width: 137
+      height: 65
+    spriteID: 889ea9e3293262b4ca8cf3db4f9ad94c
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 624, y: 248}
+  - name: s-Blend sword 3
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 1716
+      y: 417
+      width: 127
+      height: 89
+    spriteID: 378da466600b5ba41bb8c9efd7755c7f
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 1368, y: 117}
+  - name: s-Blend sword 2
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 1351
+      y: 431
+      width: 79
+      height: 71
+    spriteID: 7f43975c4a394884890a1057b8a67d27
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 961, y: 105}
+  - name: s-Blend sword 1
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 880
+      y: 339
+      width: 61
+      height: 61
+    spriteID: 17ec535ba191c724ea3da16e598d0768
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 465, y: -6}
+  - name: s-slash 1
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 961
+      y: 249
+      width: 188
+      height: 243
+    spriteID: e041372a1ff11b94d8e3efabadc34d07
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 699, y: 68}
+  - name: s-Water ball 2
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 1545
+      y: 249
+      width: 163
+      height: 161
+    spriteID: 27e0abc776c1ca74daf7790f512771cc
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 1301, y: 33}
+  - name: s-Water ball 1
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 1716
+      y: 249
+      width: 161
+      height: 160
+    spriteID: 242cd4a95bc649248aadf4f53dc6a8f0
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 1470, y: 32}
+  - name: s-Lance
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 1438
+      y: 431
+      width: 368
+      height: 41
+    spriteID: 929ba48f001b84142b1a7665fcef7c63
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 1131, y: 165}
+  - name: s-whip
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 1157
+      y: 431
+      width: 78
+      height: 105
+    spriteID: 02b0c267e174c7048ba127bc78164c05
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 860, y: 179}
+  - name: s-Lance
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 1438
+      y: 431
+      width: 58
+      height: 88
+    spriteID: 929ba48f001b84142b1a7665fcef7c63
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 1131, y: 165}
+  - name: s-Sword
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 1243
+      y: 431
+      width: 69
+      height: 102
+    spriteID: 29bf93d6d1d887e4da339898bfa6c6dc
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 945, y: 170}
+  - name: ' s-Decay 3'
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 1885
+      y: 249
+      width: 159
+      height: 160
+    spriteID: cfa4e553a45251848b329d28a87978cb
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 1637, y: 32}
+  - name: s- Decay 2
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 576
+      width: 161
+      height: 160
+    spriteID: 2b5efd5f62d80ad44bad358b9b601f4b
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: -242, y: 359}
+  - name: ' s-Decay 1'
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 173
+      y: 576
+      width: 161
+      height: 160
+    spriteID: ef5fdbb54e2400a498fc8d9d191f3042
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: -73, y: 359}
+  - name: s-Hit Effect 4
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 1849
+      y: 4
+      width: 186
+      height: 174
+    spriteID: 608dd1b76ba6d9648b27b6771b41a083
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 1523, y: -244}
+  - name: s-Hit Effect 3
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 1157
+      y: 249
+      width: 186
+      height: 174
+    spriteID: 3267eb527f6c7264c8327db519131aa7
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 831, y: 1}
+  - name: s-Hit Effect 2
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 1351
+      y: 249
+      width: 186
+      height: 174
+    spriteID: d45b9ade9256c244ba347b1717f8c5c2
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 1025, y: 1}
+  - name: s-Hit Effect 1
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 670
+      y: 339
+      width: 202
+      height: 176
+    spriteID: 15cf4955e7f5781428201ff341c3f938
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 358, y: 93}
+  - name: FatiaModern Copy
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 670
+      y: 4
+      width: 283
+      height: 327
+    spriteID: 73c7bfafbc961e840b5cf1dc2124f673
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 495, y: -132}
+  - name: Layer 2
+    originalName: 
+    pivot: {x: 0.5, y: 0.5}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 4
+      width: 658
+      height: 564
+    spriteID: 2521e345d55a56840b631f8e799814e9
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    parentGroupIndex: -1
+    uvTransform: {x: 4, y: 4}
+  characterData:
+    bones: []
+    parts: []
+    dimension: {x: 0, y: 0}
+    characterGroups: []
+    boneReadOnly: 0
+  sharedRigSpriteImportData: []
+  sharedRigCharacterData:
+    bones: []
+    parts: []
+    dimension: {x: 0, y: 0}
+    characterGroups: []
+    boneReadOnly: 0
+  platformSettings:
+  - name: DefaultTexturePlatform
+    overridden: 0
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    androidETC2FallbackOverride: 0
+  - name: Standalone
+    overridden: 0
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    androidETC2FallbackOverride: 0
+  - name: Server
+    overridden: 0
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    androidETC2FallbackOverride: 0
+  mosaicLayers: 1
+  characterMode: 1
+  documentPivot: {x: 0, y: 0}
+  documentAlignment: 0
+  importHiddenLayers: 1
+  layerMappingOption: 0
+  generatePhysicsShape: 0
+  paperDollMode: 0
+  keepDupilcateSpriteName: 1
+  skeletonAssetReferenceID: 
+  spriteCategoryList:
+    categories: []
+  spritePackingTag: 
+  resliceFromLayer: 0
+  mosaicPSDLayers: []
+  rigPSDLayers:
+  - name: Heal Effect
+    spriteName: 
+    isGroup: 1
+    parentIndex: -1
+    spriteID: 09cae9b26e7ef3244bf423cf8dd80373
+    layerID: 0
+    mosaicPosition: {x: 0, y: 0}
+    flatten: 0
+    isImported: 0
+    isVisible: 1
+  - name: s-Heal Effect 3
+    spriteName: s-Heal Effect 3
+    isGroup: 0
+    parentIndex: 0
+    spriteID: fec65f972104094418b39378d8c73889
+    layerID: 0
+    mosaicPosition: {x: 1557, y: 4}
+    flatten: 0
+    isImported: 1
+    isVisible: 0
+  - name: s-Heal Effect 2
+    spriteName: s-Heal Effect 2
+    isGroup: 0
+    parentIndex: 0
+    spriteID: df0e4a05d513a304fa77c9bb6fd84b2c
+    layerID: 0
+    mosaicPosition: {x: 1260, y: 4}
+    flatten: 0
+    isImported: 1
+    isVisible: 0
+  - name: s-Heal Effect 1
+    spriteName: s-Heal Effect 1
+    isGroup: 0
+    parentIndex: 0
+    spriteID: a51f95ff09413ba42a22b50efa4f39ac
+    layerID: 0
+    mosaicPosition: {x: 961, y: 4}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: Blend sword
+    spriteName: 
+    isGroup: 1
+    parentIndex: -1
+    spriteID: 3d5e8a4fd66e1464bb725bcc4e241ab0
+    layerID: 0
+    mosaicPosition: {x: 0, y: 0}
+    flatten: 0
+    isImported: 0
+    isVisible: 0
+  - name: s-Blend sword 6
+    spriteName: s-Blend sword 6
+    isGroup: 0
+    parentIndex: 4
+    spriteID: 16854e398a51a924b8674e5a0974f45f
+    layerID: 0
+    mosaicPosition: {x: 1885, y: 417}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: s-Blend sword 5
+    spriteName: s-Blend sword 5
+    isGroup: 0
+    parentIndex: 4
+    spriteID: 939940688d5cf0b4995a4c137cf0175f
+    layerID: 0
+    mosaicPosition: {x: 1545, y: 418}
+    flatten: 0
+    isImported: 1
+    isVisible: 0
+  - name: s-Blend sword 4
+    spriteName: s-Blend sword 4
+    isGroup: 0
+    parentIndex: 4
+    spriteID: 889ea9e3293262b4ca8cf3db4f9ad94c
+    layerID: 0
+    mosaicPosition: {x: 961, y: 500}
+    flatten: 0
+    isImported: 1
+    isVisible: 0
+  - name: s-Blend sword 3
+    spriteName: s-Blend sword 3
+    isGroup: 0
+    parentIndex: 4
+    spriteID: 378da466600b5ba41bb8c9efd7755c7f
+    layerID: 0
+    mosaicPosition: {x: 1716, y: 417}
+    flatten: 0
+    isImported: 1
+    isVisible: 0
+  - name: s-Blend sword 2
+    spriteName: s-Blend sword 2
+    isGroup: 0
+    parentIndex: 4
+    spriteID: 7f43975c4a394884890a1057b8a67d27
+    layerID: 0
+    mosaicPosition: {x: 1351, y: 431}
+    flatten: 0
+    isImported: 1
+    isVisible: 0
+  - name: s-Blend sword 1
+    spriteName: s-Blend sword 1
+    isGroup: 0
+    parentIndex: 4
+    spriteID: 17ec535ba191c724ea3da16e598d0768
+    layerID: 0
+    mosaicPosition: {x: 880, y: 339}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: Slash
+    spriteName: 
+    isGroup: 1
+    parentIndex: -1
+    spriteID: 35d5750708e5b4c4e9fc162b56ec6cb4
+    layerID: 0
+    mosaicPosition: {x: 0, y: 0}
+    flatten: 0
+    isImported: 0
+    isVisible: 0
+  - name: s-slash 1
+    spriteName: s-slash 1
+    isGroup: 0
+    parentIndex: 11
+    spriteID: e041372a1ff11b94d8e3efabadc34d07
+    layerID: 0
+    mosaicPosition: {x: 961, y: 249}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: Water ball
+    spriteName: 
+    isGroup: 1
+    parentIndex: -1
+    spriteID: 8453c9cda1975e748a7a5b4d219c39fc
+    layerID: 0
+    mosaicPosition: {x: 0, y: 0}
+    flatten: 0
+    isImported: 0
+    isVisible: 0
+  - name: s-Water ball 2
+    spriteName: s-Water ball 2
+    isGroup: 0
+    parentIndex: 13
+    spriteID: 27e0abc776c1ca74daf7790f512771cc
+    layerID: 0
+    mosaicPosition: {x: 1545, y: 249}
+    flatten: 0
+    isImported: 1
+    isVisible: 0
+  - name: s-Water ball 1
+    spriteName: s-Water ball 1
+    isGroup: 0
+    parentIndex: 13
+    spriteID: 242cd4a95bc649248aadf4f53dc6a8f0
+    layerID: 0
+    mosaicPosition: {x: 1716, y: 249}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: Weapon
+    spriteName: 
+    isGroup: 1
+    parentIndex: -1
+    spriteID: 73a19609b23b39140b65ee184786cd37
+    layerID: 0
+    mosaicPosition: {x: 0, y: 0}
+    flatten: 0
+    isImported: 0
+    isVisible: 0
+  - name: s-Lance
+    spriteName: s-Lance
+    isGroup: 0
+    parentIndex: 16
+    spriteID: 929ba48f001b84142b1a7665fcef7c63
+    layerID: 0
+    mosaicPosition: {x: 342, y: 576}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: Icon
+    spriteName: 
+    isGroup: 1
+    parentIndex: -1
+    spriteID: 581a52702c64bb343ba71561f8bbc8e1
+    layerID: 0
+    mosaicPosition: {x: 0, y: 0}
+    flatten: 0
+    isImported: 0
+    isVisible: 0
+  - name: s-whip
+    spriteName: s-whip
+    isGroup: 0
+    parentIndex: 18
+    spriteID: 02b0c267e174c7048ba127bc78164c05
+    layerID: 0
+    mosaicPosition: {x: 1157, y: 431}
+    flatten: 0
+    isImported: 1
+    isVisible: 0
+  - name: s-Lance
+    spriteName: s-Lance
+    isGroup: 0
+    parentIndex: 18
+    spriteID: 929ba48f001b84142b1a7665fcef7c63
+    layerID: 0
+    mosaicPosition: {x: 1438, y: 431}
+    flatten: 0
+    isImported: 1
+    isVisible: 0
+  - name: s-Sword
+    spriteName: s-Sword
+    isGroup: 0
+    parentIndex: 18
+    spriteID: 29bf93d6d1d887e4da339898bfa6c6dc
+    layerID: 0
+    mosaicPosition: {x: 1243, y: 431}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: Water ball Decay
+    spriteName: 
+    isGroup: 1
+    parentIndex: -1
+    spriteID: e9019ef57caf1484bb39584f2cc59d8d
+    layerID: 0
+    mosaicPosition: {x: 0, y: 0}
+    flatten: 0
+    isImported: 0
+    isVisible: 0
+  - name: ' s-Decay 3'
+    spriteName: ' s-Decay 3'
+    isGroup: 0
+    parentIndex: 22
+    spriteID: cfa4e553a45251848b329d28a87978cb
+    layerID: 0
+    mosaicPosition: {x: 1885, y: 249}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: s- Decay 2
+    spriteName: s- Decay 2
+    isGroup: 0
+    parentIndex: 22
+    spriteID: 2b5efd5f62d80ad44bad358b9b601f4b
+    layerID: 0
+    mosaicPosition: {x: 4, y: 576}
+    flatten: 0
+    isImported: 1
+    isVisible: 0
+  - name: ' s-Decay 1'
+    spriteName: ' s-Decay 1'
+    isGroup: 0
+    parentIndex: 22
+    spriteID: ef5fdbb54e2400a498fc8d9d191f3042
+    layerID: 0
+    mosaicPosition: {x: 173, y: 576}
+    flatten: 0
+    isImported: 1
+    isVisible: 0
+  - name: Hit Effect
+    spriteName: 
+    isGroup: 1
+    parentIndex: -1
+    spriteID: 1be4757656c990544a5b6235070c1b2d
+    layerID: 0
+    mosaicPosition: {x: 0, y: 0}
+    flatten: 0
+    isImported: 0
+    isVisible: 0
+  - name: s-Hit Effect 4
+    spriteName: s-Hit Effect 4
+    isGroup: 0
+    parentIndex: 26
+    spriteID: 608dd1b76ba6d9648b27b6771b41a083
+    layerID: 0
+    mosaicPosition: {x: 1849, y: 4}
+    flatten: 0
+    isImported: 1
+    isVisible: 0
+  - name: s-Hit Effect 3
+    spriteName: s-Hit Effect 3
+    isGroup: 0
+    parentIndex: 26
+    spriteID: 3267eb527f6c7264c8327db519131aa7
+    layerID: 0
+    mosaicPosition: {x: 1157, y: 249}
+    flatten: 0
+    isImported: 1
+    isVisible: 0
+  - name: s-Hit Effect 2
+    spriteName: s-Hit Effect 2
+    isGroup: 0
+    parentIndex: 26
+    spriteID: d45b9ade9256c244ba347b1717f8c5c2
+    layerID: 0
+    mosaicPosition: {x: 1351, y: 249}
+    flatten: 0
+    isImported: 1
+    isVisible: 0
+  - name: s-Hit Effect 1
+    spriteName: s-Hit Effect 1
+    isGroup: 0
+    parentIndex: 26
+    spriteID: 15cf4955e7f5781428201ff341c3f938
+    layerID: 0
+    mosaicPosition: {x: 670, y: 339}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  - name: FatiaModern Copy
+    spriteName: FatiaModern Copy
+    isGroup: 0
+    parentIndex: -1
+    spriteID: 73c7bfafbc961e840b5cf1dc2124f673
+    layerID: 0
+    mosaicPosition: {x: 670, y: 4}
+    flatten: 0
+    isImported: 1
+    isVisible: 0
+  - name: Layer 2
+    spriteName: Layer 2
+    isGroup: 0
+    parentIndex: -1
+    spriteID: 2521e345d55a56840b631f8e799814e9
+    layerID: 0
+    mosaicPosition: {x: 4, y: 4}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  sharedRigPSDLayers: []
+  pSDLayerImportSetting: []
+  generateGOHierarchy: 0
+  textureAssetName: 
+  prefabAssetName: 
+  spriteLibAssetName: 
+  skeletonAssetName: 
+  secondarySpriteTextures: []

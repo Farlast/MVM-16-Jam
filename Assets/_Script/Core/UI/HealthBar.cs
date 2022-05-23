@@ -7,14 +7,14 @@ using System.Collections;
 
 public class HealthBar : MonoBehaviour
 {
-    [SerializeField] private Image Fill;
-    [SerializeField] private Image subFill;
-    [SerializeField] private bool hideOnFull;
-    [SerializeField] private HealthEventChannel _OnHpChange;
-    
-    private const float MAX_TIME_SHINK = 1f;
-    private HealthSystem healthSystem;
-    IEnumerator Ishrink;
+    [SerializeField] protected Image Fill;
+    [SerializeField] protected Image subFill;
+    [SerializeField] protected bool hideOnFull;
+    [SerializeField] protected HealthEventChannel _OnHpChange;
+
+    protected const float MAX_TIME_SHINK = 1f;
+    protected HealthSystem healthSystem;
+    protected IEnumerator Ishrink;
     
     private void OnEnable()
     {
@@ -27,21 +27,25 @@ public class HealthBar : MonoBehaviour
         if (_OnHpChange != null)
             _OnHpChange.onEventRaised -= SetUp;
     }
-    public void SetUp(HealthSystem healthSystem)
+    public virtual void SetUp(HealthSystem healthSystem)
     {
         this.healthSystem = healthSystem;
 
         SetValue(healthSystem.GetHealthNormalized());
         SetSubFillValue(healthSystem.GetHealthNormalized());
+        SetHookEvent();
+    }
+    public virtual void SetHookEvent()
+    {
         healthSystem.Ondamage += HealthSystem_OnDamage;
         healthSystem.OnHealed += HealthSystem_OnHeal;
     }
-    private void SetValue(float value)
+    protected void SetValue(float value)
     {
         Fill.fillAmount = value;
         Hide();
     }
-    private void SetSubFillValue(float value)
+    protected void SetSubFillValue(float value)
     {
         subFill.fillAmount = value;
         Hide();
@@ -87,7 +91,7 @@ public class HealthBar : MonoBehaviour
             StopCoroutine(Ishrink);
         }
      }
-    IEnumerator IShrinkEffect()
+    protected IEnumerator IShrinkEffect()
     {
         float shinkTime = MAX_TIME_SHINK;
         yield return Helpers.GetWait(0.05f);

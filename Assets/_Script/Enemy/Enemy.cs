@@ -17,33 +17,30 @@ namespace Script.Enemy
 
         public float speed = 5f;
         public bool isInvincible = false;
-        //private bool isHitted = false;
-
+        [SerializeField] private GameObject hitEffect;
+        
         public void TakeDamage(DamageInfo damage)
         {
             if (isInvincible) return;
             HP -= damage.Damage;
             IsAlive = HP > 0;
-            if (!IsAlive) Destroy(gameObject);
-            else
             StartCoroutine(HitTime());
+            
+            if (!IsAlive) Destroy(gameObject);
         }
 
         void Start()
         {
             HP = MaxHP;
+            hitEffect.SetActive(false);
         }
 
-        void Update()
-        {
-        
-        }
         IEnumerator HitTime()
         {
-            //isHitted = true;
             isInvincible = true;
+            hitEffect.SetActive(true);
             yield return new WaitForSeconds(0.1f);
-            //isHitted = false;
+            hitEffect.SetActive(false);
             isInvincible = false;
         }
     }

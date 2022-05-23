@@ -24,8 +24,8 @@ namespace Script.Player
 
         public override void OnStateEnter()
         {
+            Ctx.rigidBody2D.velocity = Vector2.zero;
             Ctx.Animator.SetTrigger("Dead");
-            Ctx.gameObject.layer = LayerMask.NameToLayer("PlayerGhost");
         }
         public override void OnStateRun()
         {
@@ -33,7 +33,6 @@ namespace Script.Player
 
         public override void OnStateExit()
         {
-            Ctx.gameObject.layer = LayerMask.NameToLayer("Player");
         }
        
 

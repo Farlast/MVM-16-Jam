@@ -24,6 +24,7 @@ namespace Script.Core
         private void Start()
         {
             cameraEffects.Onshake += ScreenShake;
+            cameraEffects.SetCamera(activeVirtualCamera);
         }
         public void SetConfinder(PolygonCollider2D collider2D)
         {

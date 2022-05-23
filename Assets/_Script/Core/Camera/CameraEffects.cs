@@ -5,10 +5,10 @@ namespace Script.Core
 {
     public class CameraEffects : MonoBehaviour
     {
-        [SerializeField] private CinemachineFramingTransposer _cinemachineFramingTransposer;
-        [SerializeField] private CinemachineBasicMultiChannelPerlin _multiChannelPerlin;
-        [SerializeField] private float _shakeLength = 0;
-        [SerializeField] private CinemachineVirtualCamera _virtualCamera;
+        private CinemachineFramingTransposer _cinemachineFramingTransposer;
+        private CinemachineBasicMultiChannelPerlin _multiChannelPerlin;
+        private float _shakeLength = 0;
+        private CinemachineVirtualCamera _virtualCamera;
         public event Action<float, float,float> Onshake = delegate { };
 
         void Start()

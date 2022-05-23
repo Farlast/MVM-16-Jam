@@ -17,7 +17,7 @@ namespace Script.Player
         {
             if (!finishAttack) return;
 
-            Ctx.Animator.Play("ReleastAttack");
+            //Ctx.Animator.Play("ReleastAttack");
 
             if (waitAttackTimeCounter > 0.3)
             {
@@ -33,7 +33,7 @@ namespace Script.Player
         {
             ResetPara();
             Ctx.rigidBody2D.velocity = Vector2.zero;
-            Ctx.Animator.Play("HoldAttack");
+            //Ctx.Animator.Play("HoldAttack");
             Ctx.Attacking = true;
             Ctx.Animator.SetBool("Attacking", true);
         }

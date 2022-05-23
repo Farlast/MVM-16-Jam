@@ -9,7 +9,7 @@ namespace Script.Player
         {
             _isRootState = true;
         }
-        private float timeCounter = 0.8f;
+        private float timeCounter = 0.4f;
         private bool countFinish;
         public override void CheckSwitchState()
         {
@@ -26,7 +26,7 @@ namespace Script.Player
         public override void OnStateEnter()
         {
             Ctx.rigidBody2D.velocity = Vector2.zero;
-            Debug.Log("cast");
+            Ctx.Animator.Play("CastWaterBall");
             Ctx.StartCoroutine(TimeCount());
         }
 

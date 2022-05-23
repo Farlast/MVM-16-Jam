@@ -23,17 +23,17 @@ namespace Script.Player
             {
                 SwitchState(_factory.Dash());
             }
-            if (Ctx.InputMapPress.RawAttackInput && !Ctx.InputMapPress.HoldAttack && !Ctx.Attacking)
+            else if(Ctx.InputMapPress.RawAttackInput && !Ctx.InputMapPress.HoldAttack && !Ctx.Attacking)
             {
                 SwitchState(_factory.AirAttack());
             }
-            if (Ctx.Status.Health <= 0)
-            {
-                SwitchState(_factory.Die());
-            }
-            if (Ctx.IsWallAtFront && Ctx.Status.HasWallJump)
+            else if(Ctx.IsWallAtFront && Ctx.Status.HasWallJump)
             {
                 SwitchState(_factory.WallSliding());
+            }
+            else if (Ctx.InputMapPress.SkillFirst && Ctx.combatManager.CanUseSkill())
+            {
+                SwitchState(_factory.CastSkill());
             }
         }
 
