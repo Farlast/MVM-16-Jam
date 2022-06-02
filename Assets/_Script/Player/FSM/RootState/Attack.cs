@@ -14,21 +14,20 @@ namespace Script.Player
         private bool finishAttack;
         private float waitAttackTimeCounter;
         private float waitAttackAnimation;
-        int comboCount;
-        int maxCombo = 3;
+        
+        float FaceDirection;
         public override void CheckSwitchState()
         {
             
             if (!finishAttack) return;
             
-            if (Ctx.InputMapPress.Attack && waitAttackTimeCounter < 0.3)
+            if (Ctx.InputMapPress.AttackBuffering && waitAttackTimeCounter < 0.3)
             {
-                comboCount++;
                 NextAttack();
-                   
             }
-            else if (waitAttackTimeCounter > 0.3 || comboCount > maxCombo)
+            else if (waitAttackTimeCounter > 0.3 || Ctx.combatManager.CurrentMaxCombo())
             {
+                Ctx.StartCoroutine(ILastComboCoolDown(0.3f));
                 SwitchState(_factory.Grounded());
             }
            
@@ -36,30 +35,16 @@ namespace Script.Player
         private void NextAttack()
         {
             ResetTimer();
-            switch (comboCount)
-            {
-                case 1:
-                    Ctx.Animator.Play("Attack1");
-                    break;
-                case 2:
-                    Ctx.Animator.Play("Attack2");
-                    break;
-                case 3:
-                    Ctx.Animator.Play("Attack3");
-                    Ctx.StartCoroutine(ILastComBoCoolDown(0.5f));
-                    Ctx.StartCoroutine(IMove(20f, 0.4f));
-                    
-                    break;
-            }
+            Ctx.combatManager.AttackBycombo(FaceDirection);
         }
+
         public override void OnStateEnter()
         {
-            comboCount++;
-
             Ctx.rigidBody2D.velocity = Vector2.zero;
             Ctx.Animator.SetBool("Attacking", true);
             Ctx.Attacking = true;
-
+            FaceDirection = Ctx.InputMapPress.LatesDirection;
+            Ctx.combatManager.ResetAttackCombo();
             NextAttack();
         }
 
@@ -67,8 +52,7 @@ namespace Script.Player
         public override void OnStateExit()
         {
             ResetTimer();
-            ResetAttackCombo();
-
+            Ctx.combatManager.ResetAttackCombo();
             Ctx.Attacking = false;
             Ctx.Animator.SetBool("Attacking", false);
         }
@@ -122,28 +106,12 @@ namespace Script.Player
             waitAttackTimeCounter = 0;
             waitAttackAnimation = 0;
         }
-        private void ResetAttackCombo()
-        {
-            comboCount = 0;
-        }
-        IEnumerator ILastComBoCoolDown(float time)
+    
+        IEnumerator ILastComboCoolDown(float time)
         {
             Ctx.CanAttack = false;
             yield return new WaitForSeconds(time);
             Ctx.CanAttack = true;
-        }
-        IEnumerator IMove(float dashSpeed,float time)
-        {
-            var dashTimer = 0f;
-            while (dashTimer <= time && !Ctx.combatManager.GetHit && !Ctx.IsWallAtFront)
-            {
-                Ctx.rigidBody2D.velocity = new Vector2(dashSpeed * Ctx.InputMapPress.LatesDirection, 0);
-                dashTimer += Time.deltaTime * 3;
-                yield return new WaitForFixedUpdate();
-            }
-            
-            yield return new WaitForFixedUpdate();
-            Ctx.rigidBody2D.velocity = new Vector2(0, 0);
         }
     }
 }

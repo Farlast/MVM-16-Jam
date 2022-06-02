@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 4944077192545323177}
   - component: {fileID: 4944077192545323176}
   - component: {fileID: 4944077192545323092}
-  m_Layer: 10
+  m_Layer: 11
   m_Name: WaterBall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -47,9 +47,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 17a030831a328274cb3e6e3a67538171, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  decayTime: 3
+  decayTime: 5
   healAmount: 1
   decayEffect: {fileID: 6383000164734840873, guid: bb2eab2dae83aca4a9300d39a902471b, type: 3}
+  takeHit: 0
+  slashWave: {fileID: 646448195061881512, guid: 86864c21d81f8ba4cbb42b07b310f067, type: 3}
+  bigLance: {fileID: 1087877699684104233, guid: 3d97b1ffc37831e478becf76c21c1964, type: 3}
 --- !u!58 &4944077192545323177
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -60,7 +63,7 @@ CircleCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: -0.03, y: 0}
@@ -104,8 +107,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -1332422405
+  m_SortingLayer: 6
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 0524f51d4c670e0489203d897e83b7ac, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -115,7 +118,7 @@ SpriteRenderer:
   m_Size: {x: 6.58, y: 5.64}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!95 &4944077192545323092

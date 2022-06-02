@@ -1,18 +1,14 @@
 using Script.Core;
 using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 namespace Script.Player
 {
-    public enum AttackType
-    {
-        Sword,
-        Lance,
-        Wire
-    } 
     public class CombatManager : MonoBehaviour,IDamageable
     {
         private HealthSystem healthSystem;
+        [SerializeField] private PlayerBase playerBase;
         [SerializeField] private HealthEventChannel healthEvent;
         [SerializeField] private GameObject healEffect;
         [SerializeField] private GameObject waterballSkill;
@@ -23,27 +19,26 @@ namespace Script.Player
         [SerializeField] private Transform attackPos;
         [SerializeField] private float attackRangeX;
         [SerializeField] private float attackRangeY;
-
         [SerializeField] private Color HitboxColor;
-        Rigidbody2D rigidBody2D;
 
-        [Header("[Attack]")]
-        [SerializeField] private float Damage;
-        [SerializeField] private float KnockBackValue;
-
+        [Header("[Weapons]")]
         [SerializeField] private float skillCost;
+        [SerializeField] DamageInfoEvent infoEvent;
+        [field: SerializeField] public Weapon CurrentWeapon { get; private set; }
 
         [field: SerializeField] public int CurrentCombo { get; private set; }
         [field: SerializeField] public bool Invincible { get; private set; }
         [field: SerializeField] public bool GetHit { get; private set; }
         [field: SerializeField] public PlayerStatus Status { get; set; }
-        [field: SerializeField] public AttackType CurrentAttackType { get; private set; }
+        [field: SerializeField] public DamageInfo.AttackType CurrentAttackType { get; private set; }
         [field: SerializeField] public Vector2 KnockbackTaken { get; private set; }
 
+        private Dictionary<DamageInfo.AttackType, Weapon> Weapons = new Dictionary<DamageInfo.AttackType, Weapon>(); 
+        
+        #region setup
         private void Awake()
         {
             healthSystem = new HealthSystem(Status.MaxHealth,Status.MaxMana);
-            rigidBody2D = GetComponent<Rigidbody2D>();
             GetHit = false;
         }
         private void Start()
@@ -52,54 +47,36 @@ namespace Script.Player
             Status.mana = Status.MaxMana;
 
             healthEvent?.RiseEvent(healthSystem);
+            infoEvent.RiseEvent(CurrentAttackType);
             healEffect?.SetActive(false);
+
+            WeaponSetup();
+
+            if (GameStateManager.Instance != null)
+                GameStateManager.Instance.onGameStateChange += OnGameStateChange;
         }
+        private void OnDestroy()
+        {
+            if (GameStateManager.Instance != null)
+                GameStateManager.Instance.onGameStateChange -= OnGameStateChange;
+        }
+        public void OnGameStateChange(GameStates newGameStates)
+        {
+            enabled = newGameStates == GameStates.GamePlay;
+        }
+        private void WeaponSetup()
+        {
+            Weapons.Add(DamageInfo.AttackType.Sword, new Sword(3, playerBase));
+            Weapons.Add(DamageInfo.AttackType.Lance, new Lance(2, playerBase));
+
+            CurrentWeapon = Weapons[DamageInfo.AttackType.Sword];
+            CurrentAttackType = DamageInfo.AttackType.Sword;
+        }
+        #endregion
+        #region Skill
         public bool CanUseSkill()
         {
             return Status.mana - skillCost >= 0;
-        }
-        public AttackType SwicthAttackType()
-        {
-            switch (CurrentAttackType)
-            {
-                case AttackType.Sword:
-                    CurrentAttackType = AttackType.Lance;
-                    break;
-
-                case AttackType.Lance:
-                    CurrentAttackType = AttackType.Wire;
-                    break;
-
-                case AttackType.Wire:
-                    CurrentAttackType = AttackType.Sword;
-                    break;
-
-                default:
-                    CurrentAttackType = AttackType.Sword;
-                    break;
-            }
-            return CurrentAttackType;
-        }
-
-        public void Attack()
-        {
-            Collider2D[] TargetToDamage = Physics2D.OverlapBoxAll(attackPos.position, new Vector2(attackRangeX, attackRangeY), 0, attackLayer);
-            
-            if (TargetToDamage == null) return;
-            bool hitEnemy = false;
-            
-            for (int i = 0; i < TargetToDamage.Length; i++)
-            {
-                IDamageable damageable = TargetToDamage[i].GetComponent<IDamageable>();
-                hitEnemy = true;
-                if (damageable == null) return;
-
-                    damageable.TakeDamage(new DamageInfo(
-                    Damage,
-                    KnockBackValue,
-                    transform.position));              
-            }
-            if(hitEnemy) CameraManager.Instance.ScreenShake(1f,0.5f, 0.2f);
         }
         public void CastWaterball()
         {
@@ -123,6 +100,68 @@ namespace Script.Player
             yield return Helpers.GetWait(0.5f);
             healEffect?.SetActive(false);
         }
+
+        #endregion
+        #region Attack
+        public DamageInfo.AttackType SwicthAttackType()
+        {
+            switch (CurrentAttackType)
+            {
+                case DamageInfo.AttackType.Sword:
+                    CurrentAttackType = DamageInfo.AttackType.Lance;
+                    CurrentWeapon = Weapons[CurrentAttackType];
+                    break;
+
+                case DamageInfo.AttackType.Lance:
+                    CurrentAttackType = DamageInfo.AttackType.Sword;
+                    CurrentWeapon = Weapons[CurrentAttackType];
+                    break;
+
+                default:
+                    CurrentAttackType = DamageInfo.AttackType.Sword;
+                    break;
+            }
+            infoEvent.RiseEvent(CurrentAttackType);
+            return CurrentAttackType;
+        }
+        public bool CurrentMaxCombo()
+        {
+            return CurrentCombo > CurrentWeapon.Maxcombo;
+        }
+        public void AttackBycombo(float faceDirection)
+        {
+            CurrentWeapon.Attack(CurrentCombo, faceDirection);
+        }
+        public void ResetAttackCombo()
+        {
+            CurrentCombo = 1;
+        }
+        public void Attack()
+        {
+            CurrentCombo++;
+            Collider2D[] TargetToDamage = Physics2D.OverlapBoxAll(attackPos.position, new Vector2(attackRangeX, attackRangeY), 0, attackLayer);
+            
+            if (TargetToDamage == null) return;
+
+            bool hitEnemy = false;
+            for (int i = 0; i < TargetToDamage.Length; i++)
+            {
+                IDamageable damageable = TargetToDamage[i].GetComponent<IDamageable>();
+
+                hitEnemy = true;
+
+                if (damageable == null) return;
+
+                    damageable.TakeDamage(new DamageInfo(
+                    CurrentWeapon.Damage,
+                    CurrentWeapon.KnockBackValue,
+                    transform.position,
+                    CurrentAttackType));
+            }
+            if(hitEnemy) CameraManager.Instance.ScreenShake(1f,0.5f, 0.2f);
+        }
+        #endregion
+        #region TakeDamage
         public void TakeDamage(DamageInfo damage)
         {
             if (Invincible) return;
@@ -151,6 +190,8 @@ namespace Script.Player
                 KnockbackTaken = new Vector2(direction.x * damage.KnockBack, 1 * damage.KnockBack);
             }
         }
+        #endregion
+        
         IEnumerator MakeInvincible(float time)
         {
             Invincible = true;

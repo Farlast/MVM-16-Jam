@@ -3,29 +3,26 @@ using UnityEngine;
 
 namespace Script.Player
 {
-    public class WaterBall : MonoBehaviour
+    public class WaterBall : MonoBehaviour,IDamageable
     {
         [SerializeField] float decayTime;
         [SerializeField] float healAmount;
         [SerializeField] GameObject decayEffect;
+        [SerializeField] bool takeHit;
         IEnumerator decay;
-       
+        [SerializeField] GameObject slashWave;
+        [SerializeField] GameObject bigLance;
         void Start()
         {
+            takeHit = false;
             decay = IDacay();
             StartCoroutine(decay);
         }
 
-        public void ShapeBlend(AttackType type)
+        private void OnTriggerEnter2D(Collider2D collision)
         {
-            if(type == AttackType.Sword)
-            {
-                //Instantiate slash and destroy this
-            }
-        }
+            if (takeHit) return;
 
-        private void OnCollisionEnter2D(Collision2D collision)
-        {
             if(collision.gameObject.TryGetComponent(out CombatManager player))
             {
                 StopCoroutine(decay);
@@ -40,6 +37,35 @@ namespace Script.Player
             if(decayEffect != null) Instantiate(decayEffect,transform.position,Quaternion.identity);
             Destroy(gameObject);
         }
-       
+
+        public void TakeDamage(DamageInfo damage)
+        {
+            takeHit = true;
+            ShapeBlend(damage);
+        }
+        public void ShapeBlend(DamageInfo damage)
+        {
+            StopCoroutine(decay);
+            if (damage.Type == DamageInfo.AttackType.Sword)
+            {
+                print("attack by sword");
+                takeHit = true;
+                //Instantiate slash and destroy this
+                var sWave = slashWave.GetComponent<SlashWave>();
+                sWave.Diraction = (transform.position - damage.AttackerPosition).normalized.x;
+
+                Instantiate(slashWave, transform.position, Quaternion.identity);
+                Destroy(gameObject);
+            } else if (damage.Type == DamageInfo.AttackType.Lance)
+            {
+                print("attack by Lance");
+                var lance = bigLance.GetComponent<BigLance>();
+                lance.Diraction = (transform.position - damage.AttackerPosition).normalized.x;
+                
+                Instantiate(bigLance, transform.position, Quaternion.identity);
+
+                Destroy(gameObject);
+            }
+        }
     }
 }

@@ -18,6 +18,7 @@ namespace Script.Player
             }
             else if (Ctx.InputMapPress.JumpBuffering)
             {
+                Ctx.JumpCount = 1;
                 Ctx.Animator.SetTrigger("Jump");
                 Ctx.rigidBody2D.velocity = new Vector2(Ctx.rigidBody2D.velocity.x, Ctx.Status.JumpForce);
                 Ctx.InputMapPress.JumpBufferingTimeCounter = 0f;
@@ -48,6 +49,7 @@ namespace Script.Player
         public override void OnStateEnter()
         {
             InitializeSubState();
+            Ctx.JumpCount = 0;
         }
 
         public override void OnStateExit()

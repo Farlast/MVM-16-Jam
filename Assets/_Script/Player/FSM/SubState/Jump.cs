@@ -7,8 +7,6 @@ namespace Script.Player
         public Jump(PlayerBase ctx, StateFactory factory) : base(ctx, factory)
         {
         }
-       
-        int JumpCounter;
         public override void CheckSwitchState()
         {
 
@@ -16,12 +14,12 @@ namespace Script.Player
 
         public override void OnStateEnter()
         {
-            JumpCounter += 1;
+
         }
 
         public override void OnStateExit()
         {
-            JumpCounter = 0;
+
         }
 
         public override void OnStateRun()
@@ -38,14 +36,14 @@ namespace Script.Player
             if (IsCanDoubleJump())
             {
                 Ctx.Animator.SetTrigger("Jump");
-                JumpCounter += 1;
+                Ctx.JumpCount += 1;
                 Ctx.rigidBody2D.velocity = new Vector2(Ctx.rigidBody2D.velocity.x, Ctx.Status.JumpForce);
             }
         }
        
         private bool IsCanDoubleJump()
         {
-            return Ctx.Status.HasDoubleJump && Ctx.InputMapPress.JumpBuffering && JumpCounter < 2;
+            return Ctx.Status.HasDoubleJump && Ctx.InputMapPress.JumpBuffering && Ctx.JumpCount < 2;
         }
         public override void OnStateFixedUpdate()
         {

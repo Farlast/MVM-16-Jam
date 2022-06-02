@@ -18,11 +18,21 @@ namespace Script.Core
         {
             Instance = this;
         }
+
         public void SetGameState(GameStates newGameStates)
         {
             if (newGameStates == CurrentGameState) return;
             CurrentGameState = newGameStates;
             onGameStateChange?.Invoke(newGameStates);
+
+            if(CurrentGameState == GameStates.Paused)
+            {
+                Time.timeScale = 0f;
+            }
+            else
+            {
+                Time.timeScale = 1;
+            }
         }
     }
 }

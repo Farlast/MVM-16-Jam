@@ -1,5 +1,6 @@
 using Script.Core;
 using UnityEngine;
+using System.Collections;
 
 namespace Script.Player
 {
@@ -44,6 +45,7 @@ namespace Script.Player
         [field: SerializeField] internal float LowJumpMultiplier { get; private set; }
         [field: SerializeField] internal float CoyoteThreshold { get; private set; }
         [field: SerializeField] internal float MaxFallSpeed { get; private set; }
+        [field: SerializeField] internal int JumpCount { get; set; }
 
         [Space]
         [Header("[Collision]")]
@@ -70,13 +72,13 @@ namespace Script.Player
         }
         private void Start()
         {
-            //if(GameStateManager.Instance != null)
-            //GameStateManager.Instance.onGameStateChange += OnGameStateChange;
+            if(GameStateManager.Instance != null)
+            GameStateManager.Instance.onGameStateChange += OnGameStateChange;
         }
         private void OnDestroy()
         {
-            //if(GameStateManager.Instance != null)
-            //GameStateManager.Instance.onGameStateChange -= OnGameStateChange;
+            if(GameStateManager.Instance != null)
+            GameStateManager.Instance.onGameStateChange -= OnGameStateChange;
         }
         public InputMapping InputMapPress => inputMapping;
         private void StateDisplay() => stateDisplay = CurrentState.GetType().Name;
@@ -126,7 +128,19 @@ namespace Script.Player
         {
             enabled = newGameStates == GameStates.GamePlay;
         }
+        public IEnumerator IMove(float dashSpeed, float time, float faceDirection)
+        {
+            var dashTimer = 0f;
+            while (dashTimer <= time && !combatManager.GetHit && !IsWallAtFront)
+            {
+                rigidBody2D.velocity = new Vector2(dashSpeed * faceDirection, 0);
+                dashTimer += Time.deltaTime * 3;
+                yield return new WaitForFixedUpdate();
+            }
 
+            yield return new WaitForFixedUpdate();
+            rigidBody2D.velocity = new Vector2(0, 0);
+        }
         #endregion
         #region Gizmos
         private void OnDrawGizmos()

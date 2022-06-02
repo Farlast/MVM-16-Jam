@@ -16,7 +16,7 @@ TagManager:
   - Ground
   - PlayerGhost
   - Effect
-  - 
+  - Skill
   - 
   - 
   - 
@@ -41,21 +41,27 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
-  - name: Effect
-    uniqueID: 2962544891
+  - name: Background-3
+    uniqueID: 4282292681
     locked: 0
-  - name: Player
-    uniqueID: 1814644917
+  - name: Background-2
+    uniqueID: 3372372527
     locked: 0
-  - name: Enemy
-    uniqueID: 2317220185
-    locked: 0
-  - name: Foreground
-    uniqueID: 3069202887
+  - name: Background
+    uniqueID: 2509240027
     locked: 0
   - name: Ground
     uniqueID: 182484835
     locked: 0
-  - name: Background
-    uniqueID: 2509240027
+  - name: Foreground
+    uniqueID: 3069202887
+    locked: 0
+  - name: Enemy
+    uniqueID: 2317220185
+    locked: 0
+  - name: Player
+    uniqueID: 1814644917
+    locked: 0
+  - name: Effect
+    uniqueID: 2962544891
     locked: 0

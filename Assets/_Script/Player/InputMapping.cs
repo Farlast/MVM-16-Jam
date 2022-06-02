@@ -2,20 +2,28 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using Script.Core;
 using System.Collections;
+using System;
+
 namespace Script.Player
 {
     public class InputMapping : MonoBehaviour
     {
+        [Header("[Dependency]")]
         [SerializeField] PlayerStatus playerStatus;
+        [Header("[Event]")]
+        [SerializeField] VoidEventChannel pauseMenuEvent;
+
         [Header("Input value")]
         [SerializeField] private Vector2 moveInputVector;
         [SerializeField] private bool attackInput;
         [SerializeField] private bool attack;
+        [SerializeField] private float attackBufferingTime = 0.25f;
+        [field:SerializeField] public bool AttackBuffering { get; set; }
         [SerializeField] private bool holdAttack;
         [SerializeField] private bool jumpInput;
         [SerializeField] private bool jump;
         [SerializeField] private bool holdJump;
-        [SerializeField] private float minHoldJumpTime;
+        [SerializeField] private float minHoldJumpTime = 0.2f;
         [SerializeField] private bool dash;
         [SerializeField] private bool jumpBuffering;
         [SerializeField] private float minHoldAttackTime;
@@ -30,9 +38,11 @@ namespace Script.Player
         private float counter = 0;
         private float counter2 = 0;
         private bool gamePlayState;
+        IEnumerator IAttackBuffering;
 
         public Vector2 MoveInputVector { get => moveInputVector; private set => moveInputVector = value; }
         public bool Attack { get => attack; set => attack = value; }
+        public float AttackBufferingTimeCounter { get; set; } = 0f;
         public bool Jump { get => jump; }
         public bool Dash { get => dash; }
         public bool HoldJump { get => holdJump; }
@@ -44,6 +54,28 @@ namespace Script.Player
         public bool SkillFirst { get => skill1; private set => skill1 = value; }
         public bool SkillSecond { get => skill2; private set => skill2 = value; }
         public bool SwicthWeapon { get => swicthWeapon; private set => swicthWeapon = value; }
+
+        private void SetupAttackBuffer()
+        {
+            if (IAttackBuffering == null)
+            {
+                IAttackBuffering = IAttackBuffer(attackBufferingTime);
+                StartCoroutine(IAttackBuffering);
+            }
+            else
+            {
+                StopCoroutine(IAttackBuffering);
+                IAttackBuffering = IAttackBuffer(attackBufferingTime);
+                StartCoroutine(IAttackBuffering);
+            }
+        }
+
+        public void ResetAttackBuffer()
+        {
+            if (IAttackBuffering == null) return;
+            StopCoroutine(IAttackBuffering);
+            AttackBuffering = false;
+        }
 
         #region OnInput
         public void OnMove(InputValue value)
@@ -97,17 +129,22 @@ namespace Script.Player
             float btnValue = value.Get<float>();
             SwitchWeaponInput(btnValue);
         }
+
+        public void OnPauseMenu(InputValue value)
+        {
+            pauseMenuEvent?.RiseEvent();
+        }
         #endregion
 
         #region Setting bool Input
         void AttackInput(float pressValue)
         {
             // 1 = press ,0 = releass
-            attackInput = pressValue == 1 ? true : false;
+            attackInput = pressValue == 1;
             startAttackCount = true;
 
-            if (attackInput) return;
-
+            if (!attackInput) return;
+           
             if (counter2 <= minHoldAttackTime)
             {
                 attack = true;
@@ -115,8 +152,9 @@ namespace Script.Player
             HoldAttack = false;
             counter2 = 0;
             startAttackCount = false;
-
+            SetupAttackBuffer();
             StartCoroutine(IDelay(0.2f));
+            
         }
         void Skill1Input(float pressValue)
         {
@@ -203,11 +241,18 @@ namespace Script.Player
             yield return Helpers.GetWait(DelaySec);
             attack = false;
         }
+        IEnumerator IAttackBuffer(float DelaySec)
+        {
+            AttackBuffering = true;
+            yield return Helpers.GetWait(DelaySec);
+            AttackBuffering = false;
+        }
         private void Start()
         {
+            LatesDirection = 1;
             startAttackCount = startJob = false;
             gamePlayState = true;
-            //GameStateManager.Instance.onGameStateChange += OnGameStateChange;
+            GameStateManager.Instance.onGameStateChange += OnGameStateChange;
         }
         private void Update()
         {
@@ -217,26 +262,11 @@ namespace Script.Player
         }
         private void OnDestroy()
         {
-            //GameStateManager.Instance.onGameStateChange -= OnGameStateChange;
+            GameStateManager.Instance.onGameStateChange -= OnGameStateChange;
         }
         public void OnGameStateChange(GameStates newGameStates)
         {
             gamePlayState = enabled = newGameStates == GameStates.GamePlay;
-        }
-        public PlayerDirection GetPlayerDirectionName()
-        {
-            return LatesDirection switch
-            {
-                -1 => PlayerDirection.Left,
-                1 => PlayerDirection.Rigth,
-                _ => PlayerDirection.Idel,
-            };
-        }
-        public enum PlayerDirection
-        {
-            Idel = 0,
-            Left = -1,
-            Rigth = 1
         }
     }
 }

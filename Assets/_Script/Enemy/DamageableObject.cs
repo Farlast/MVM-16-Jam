@@ -10,7 +10,7 @@ namespace Script.Enemy
         {
             if(collision.gameObject.TryGetComponent(out IDamageable damageable))
             {
-                var damageInfo = new DamageInfo(damage, knockback, transform.position);
+                var damageInfo = new DamageInfo(damage, knockback, transform.position,DamageInfo.AttackType.None);
 
                 damageable.TakeDamage(damageInfo);
             }

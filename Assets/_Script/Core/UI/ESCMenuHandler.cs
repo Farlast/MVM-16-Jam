@@ -1,35 +1,68 @@
 ﻿using UnityEngine;
-using Script.Core;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
-public class ESCMenuHandler : MonoBehaviour {
-
-    [SerializeField] GameObject firstSelected;
-    [SerializeField] GameObject Canvas;
-    [SerializeField] private SceneFadeControl fadeCanvas;
-
-    private void Start()
+namespace Script.Core
+{
+    public class ESCMenuHandler : MonoBehaviour
     {
-        Canvas?.SetActive(false);
-    }
-    public void Continue()
-    {
-        Canvas.SetActive(false);
-    }
-    public void ExitGame()
-    {
-        StartCoroutine(IExitGame());
-    }
+        [Header("[Event]")]
+        [SerializeField] VoidEventChannel pauseMenuEvent;
+        [Space]
+        [SerializeField] GameObject firstSelected;
+        [SerializeField] GameObject canvas;
+        [SerializeField] SceneFadeControl fadeCanvas;
 
-    public IEnumerator IExitGame()
-    {
-        fadeCanvas?.FadeIn();
-        yield return Helpers.GetWait(1f);
+        bool open;
+        private void Start()
+        {
+            open = false;
+            canvas?.SetActive(open);
 
-        #if UNITY_EDITOR
-                UnityEditor.EditorApplication.isPlaying = false;
-        #endif
+            if(pauseMenuEvent!= null) pauseMenuEvent.onEventRaised += TolggleOpenCanvas;
+        }
+        private void OnDestroy()
+        {
+            if (pauseMenuEvent != null) pauseMenuEvent.onEventRaised -= TolggleOpenCanvas;
+        }
+        public void TolggleOpenCanvas()
+        {
+            open = !open;
+            canvas?.SetActive(open);
 
-        Application.Quit();
+            if(open)
+                GameStateManager.Instance.SetGameState(GameStates.Paused);
+            else
+                GameStateManager.Instance.SetGameState(GameStates.GamePlay);
+        }
+        public void RestartLevel()
+        {
+            GameStateManager.Instance.SetGameState(GameStates.GamePlay);
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        }
+        public void Continue()
+        {
+            open = false;
+            canvas?.SetActive(open);
+            GameStateManager.Instance.SetGameState(GameStates.GamePlay);
+        }
+        public void ExitGame()
+        {
+            StartCoroutine(IExitGame());
+        }
+
+        public IEnumerator IExitGame()
+        {
+            TolggleOpenCanvas();
+            fadeCanvas?.FadeIn();
+            yield return Helpers.GetWait(1f);
+            
+            Application.Quit();
+
+#if UNITY_EDITOR 
+            UnityEditor.EditorApplication.isPlaying = false;
+#endif
+            
+        }
     }
 }

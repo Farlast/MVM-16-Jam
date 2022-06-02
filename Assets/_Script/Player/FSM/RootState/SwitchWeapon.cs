@@ -30,20 +30,8 @@ namespace Script.Player
         {
             Ctx.rigidBody2D.velocity = Vector2.zero;
             Ctx.combatManager.SwicthAttackType();
-            switch (Ctx.combatManager.CurrentAttackType)
-            {
-                case AttackType.Sword:
-                    Ctx.Animator.Play("BlendSword");
-                    break;
-                case AttackType.Lance:
-                    Ctx.Animator.Play("BlendLance");
-                    break;
-                case AttackType.Wire:
-                    Ctx.Animator.Play("BlendSword");
-                    break;
-            }
-
-
+            Ctx.Animator.Play("BlendSword");
+           
             Ctx.StartCoroutine(TimeCount());
         }
 

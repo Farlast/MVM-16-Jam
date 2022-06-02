@@ -12,12 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9bf667da8d576c940898956f854ddaa1, type: 3}
   m_Name: Fatia Runtime Status
   m_EditorClassIdentifier: 
-  health: 1
+  health: 5
   MaxHealth: 5
   MaxMana: 5
-  mana: 4
+  mana: 5
   Speed: 10
-  JumpForce: 25
+  JumpForce: 24
   MoveInput: 0
   HasDoubleJump: 0
   HasDash: 1
