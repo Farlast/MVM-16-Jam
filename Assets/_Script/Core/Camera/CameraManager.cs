@@ -31,10 +31,9 @@ namespace Script.Core
             confiner.m_BoundingShape2D = collider2D;
         }
         public void SetNewCamera(CinemachineVirtualCamera virtualCamera, PolygonCollider2D collider2D) {
-            if(activeVirtualCamera != null) activeVirtualCamera.Priority = 1;
+            if(activeVirtualCamera != null) activeVirtualCamera.Priority = 2;
             virtualCamera.Priority = 10;
             activeVirtualCamera = virtualCamera;
-            virtualCamera.GetComponent<CinemachineConfiner>().m_BoundingShape2D = collider2D;
             cameraEffects.SetCamera(virtualCamera);
         }
         public void ScreenShake(float shakeAmplitude, float frequency, float length)

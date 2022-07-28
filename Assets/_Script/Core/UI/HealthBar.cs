@@ -2,44 +2,48 @@ using UnityEngine.UI;
 using UnityEngine;
 using System.Collections;
 
-
-/// : Bar
-
 public class HealthBar : MonoBehaviour
 {
     [SerializeField] protected Image Fill;
     [SerializeField] protected Image subFill;
     [SerializeField] protected bool hideOnFull;
-    [SerializeField] protected HealthEventChannel _OnHpChange;
+    //[SerializeField] protected HealthEventChannel _OnHpChange;
+    [SerializeField] protected PlayerStatus Status;
 
     protected const float MAX_TIME_SHINK = 1f;
-    protected HealthSystem healthSystem;
     protected IEnumerator Ishrink;
-    
-    private void OnEnable()
+   
+    private void Start()
     {
-        if (_OnHpChange != null)
-            _OnHpChange.onEventRaised += SetUp;
+        SetUp();
     }
 
-    private void OnDisable()
+    public virtual void SetUp()
     {
-        if (_OnHpChange != null)
-            _OnHpChange.onEventRaised -= SetUp;
-    }
-    public virtual void SetUp(HealthSystem healthSystem)
-    {
-        this.healthSystem = healthSystem;
+        if (Status != null)
+        {
+            Status.Ondamage += HealthSystem_OnDamage;
+            Status.OnHealed += HealthSystem_OnHeal;
 
-        SetValue(healthSystem.GetHealthNormalized());
-        SetSubFillValue(healthSystem.GetHealthNormalized());
-        SetHookEvent();
+            SetValue(Status.GetHealthNormalized());
+            SetSubFillValue(Status.GetHealthNormalized());
+        }
     }
-    public virtual void SetHookEvent()
+
+    private void OnDestroy()
     {
-        healthSystem.Ondamage += HealthSystem_OnDamage;
-        healthSystem.OnHealed += HealthSystem_OnHeal;
+        if(Status != null)
+        {
+            Status.Ondamage -= HealthSystem_OnDamage;
+            Status.OnHealed -= HealthSystem_OnHeal;
+        }
+       
+        if (Ishrink != null)
+        {
+            StopCoroutine(Ishrink);
+        }
     }
+
     protected void SetValue(float value)
     {
         Fill.fillAmount = value;
@@ -50,10 +54,11 @@ public class HealthBar : MonoBehaviour
         subFill.fillAmount = value;
         Hide();
     }
+   
     private void HealthSystem_OnDamage(object sender,System.EventArgs e)
     {
-        SetValue(healthSystem.GetHealthNormalized());
-       
+        SetValue(Status.GetHealthNormalized());
+
         if (Ishrink == null && !Hide())
         {
             Ishrink = IShrinkEffect();
@@ -62,13 +67,13 @@ public class HealthBar : MonoBehaviour
     }
     private void HealthSystem_OnHeal(object sender, System.EventArgs e)
     {
-        SetValue(healthSystem.GetHealthNormalized());
-        SetSubFillValue(healthSystem.GetHealthNormalized());
+        SetValue(Status.GetHealthNormalized());
+        SetSubFillValue(Status.GetHealthNormalized());
         Hide();
     }
     private bool Hide()
     {
-        if (hideOnFull && healthSystem.GetHealthNormalized() >= 1)
+        if (hideOnFull && Status.GetHealthNormalized() >= 1)
         {
             gameObject.SetActive(false);
             return true;
@@ -79,18 +84,7 @@ public class HealthBar : MonoBehaviour
             return false;
         }
     }
-    private void OnDestroy()
-    {
-        if(healthSystem != null)
-        {
-            healthSystem.OnHealed -= HealthSystem_OnHeal;
-            healthSystem.Ondamage -= HealthSystem_OnDamage;
-        }
-        if (Ishrink != null)
-        {
-            StopCoroutine(Ishrink);
-        }
-     }
+   
     protected IEnumerator IShrinkEffect()
     {
         float shinkTime = MAX_TIME_SHINK;

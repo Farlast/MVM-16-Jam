@@ -32,7 +32,7 @@ namespace Script.Player
             {
                 SwitchState(_factory.Dash());
             }
-            else if (Ctx.CanAttack && Ctx.InputMapPress.Attack && !Ctx.InputMapPress.HoldAttack)
+            else if (Ctx.CanAttack && Ctx.InputMapPress.RawAttackInput)
             {
                 SwitchState(_factory.Attack());
             }

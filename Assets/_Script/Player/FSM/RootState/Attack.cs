@@ -21,7 +21,7 @@ namespace Script.Player
             
             if (!finishAttack) return;
             
-            if (Ctx.InputMapPress.AttackBuffering && waitAttackTimeCounter < 0.3)
+            if (Ctx.InputMapPress.RawAttackInput && waitAttackTimeCounter < 0.3 && !Ctx.combatManager.CurrentMaxCombo())
             {
                 NextAttack();
             }
@@ -34,6 +34,7 @@ namespace Script.Player
         }
         private void NextAttack()
         {
+            Ctx.PlayAttackSound();
             ResetTimer();
             Ctx.combatManager.AttackBycombo(FaceDirection);
         }
@@ -41,11 +42,20 @@ namespace Script.Player
         public override void OnStateEnter()
         {
             Ctx.rigidBody2D.velocity = Vector2.zero;
+            if(Ctx.combatManager.CurrentAttackType == DamageInfo.AttackType.Sword)
+            {
+                Ctx.Animator.Play("Attack1");
+            }
+            else
+            {
+                Ctx.Animator.Play("LanceAttack");
+            }
+
+
             Ctx.Animator.SetBool("Attacking", true);
             Ctx.Attacking = true;
             FaceDirection = Ctx.InputMapPress.LatesDirection;
             Ctx.combatManager.ResetAttackCombo();
-            NextAttack();
         }
 
        

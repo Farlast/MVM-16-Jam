@@ -22,7 +22,10 @@ namespace Script.Enemy
 
         public override void OnStateRun()
         {
-            if (Enemy.TakeHit) return;
+            if (Enemy.TakeHit) {
+                Enemy.Rb.velocity = Vector2.zero;
+                return;
+            }
 
             if (Enemy.IsWallAtFront() || Enemy.IsCliff())
             {

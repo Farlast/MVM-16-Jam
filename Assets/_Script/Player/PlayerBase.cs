@@ -12,6 +12,11 @@ namespace Script.Player
         [Header("[Dependency]")]
         [SerializeField] private InputMapping inputMapping;
         [SerializeField] public CombatManager combatManager;
+        [Space]
+        [Header("[Sound]")]
+        [SerializeField] AudioClip runSound;
+        [SerializeField] AudioClip AttackSound;
+        AudioSource audioSource;
 
         internal State CurrentState;
         private StateFactory factory;
@@ -62,7 +67,8 @@ namespace Script.Player
             rigidBody2D = GetComponent<Rigidbody2D>();
             Animator = GetComponent<Animator>();
             inputMapping = GetComponent<InputMapping>();
-            
+            audioSource = GetComponent<AudioSource>();
+
             factory = new StateFactory(this);
             CurrentState = factory.Grounded();
             CurrentState.OnStateEnter();
@@ -85,7 +91,23 @@ namespace Script.Player
         private void SubStateDisplay() => subStateDisplay = CurrentState.CurrentSubName;
         private bool GroundCheck() => IsGrounded = Physics2D.OverlapBox(feetPos.position,new Vector2(checkRadiusFeetX,checkRadiusFeetY),0f, groundLayer);    
         private bool WallCheck() => IsWallAtFront = Physics2D.Raycast(transform.position, new Vector2(inputMapping.LatesDirection, 0), eyeRadiusCheck, groundLayer);
-       
+        
+        public AudioSource GetAudio => audioSource;
+        public void PlayAttackSound()
+        {
+            audioSource.PlayOneShot(AttackSound);
+        }
+        public void PlayRunSound()
+        {
+            audioSource.clip = runSound;
+            if (!audioSource.isPlaying)
+                audioSource.Play();
+        }
+        public void StopRunSound()
+        {
+            if(audioSource.isPlaying)
+            audioSource.Stop();
+        }
         private void Update()
         {
             CurrentState.UpdateStates();

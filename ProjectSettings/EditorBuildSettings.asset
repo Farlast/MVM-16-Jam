@@ -9,7 +9,31 @@ EditorBuildSettings:
     path: Assets/Scenes/Menu.unity
     guid: 094612dad211a1340bd1d9e271f446d0
   - enabled: 1
+    path: Assets/Scenes/System.unity
+    guid: 8aa8f38205eb5a341bb78dff59e58833
+  - enabled: 1
     path: Assets/Scenes/StartZone.unity
     guid: 8c9cfa26abfee488c85f1582747f6a02
+  - enabled: 1
+    path: Assets/Scenes/ForestPart1.unity
+    guid: 77b1910a79eb4684ba698cd4ff9b46e8
+  - enabled: 1
+    path: Assets/Scenes/ForestPart2.unity
+    guid: 883ea8b4b87a87b4298310586c412510
+  - enabled: 1
+    path: Assets/Scenes/ForestPart3.unity
+    guid: c17a8e2ddcee4d943adfa40a574388a5
+  - enabled: 1
+    path: Assets/Scenes/ForestPart4.unity
+    guid: ed37239494509dd4b955ba1a5b155072
+  - enabled: 1
+    path: Assets/Scenes/ForestPart5.unity
+    guid: ef93c67f47f598342b88f603767bcef8
+  - enabled: 1
+    path: Assets/Scenes/ForestPart6.unity
+    guid: 3febfe8019fe0b54e85d440f8106ceaf
+  - enabled: 1
+    path: Assets/Scenes/ForestPart7.unity
+    guid: 87c80f9546276514389f75083ce35cf2
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: 62b862475bf038f48b3dd1a105025e39, type: 2}

@@ -30,7 +30,8 @@ namespace Script.Enemy
 
         internal bool IsWallAtFront() => Physics2D.Raycast(transform.position, new Vector2(FaceDir, 0), eyeRadiusCheck, groundLayer);
         internal bool IsCliff() => isCliff = !Physics2D.Raycast(feetPos.position, Vector2.down, eyeRadiusCheck, groundLayer);
-
+        Animator animator;
+        public Animator GetAnimator => animator;
         public void TakeDamage(DamageInfo damage)
         {
             if (isInvincible) return;
@@ -38,14 +39,18 @@ namespace Script.Enemy
             IsAlive = HP > 0;
             StartCoroutine(HitTime());
             StartCoroutine(IKnockback(damage));
-            if (!IsAlive) Destroy(gameObject);
+            if (!IsAlive) OnDead();
         }
-
+        public virtual void OnDead()
+        {
+            Destroy(gameObject);
+        }
         void Start()
         {
             HP = MaxHP;
             hitEffect.SetActive(false);
             Rb = GetComponent<Rigidbody2D>();
+            animator = GetComponent<Animator>();
             FaceDir = -1;
             CurrentState.OnstateEnter();
         }
@@ -67,18 +72,8 @@ namespace Script.Enemy
         {
             TakeHit = true;
             var direction = info.GetDiraction(transform.position);
-            float SpeedAtTimeCurve = 0f;
-            
-            while (SpeedAtTimeCurve <= maxKnockbackTime)
-            {
-                SpeedAtTimeCurve += Time.deltaTime;
-                var Currentspeed = knockbackCurve.Evaluate(SpeedAtTimeCurve);
-                Currentspeed *= info.KnockBack;
-
-                Rb.velocity = new Vector2(Currentspeed * direction, 0);
-                yield return new WaitForFixedUpdate();
-            }
-            Rb.velocity = Vector2.zero;
+            Rb.AddForce(new Vector2((info.KnockBack * direction) * 20, 0));
+            yield return Helpers.GetWait(1f);
             TakeHit = false;
         }
         public void FlipSprite(float latesDirection)

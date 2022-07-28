@@ -5,15 +5,15 @@ namespace Script.Core
 {
     public class MainMenu : MonoBehaviour
     {
-        
-        void Start()
-        {
-        
-        }
-
         public void EnterGame()
         {
-            SceneManager.LoadScene(1);
+            AsyncOperation systemScene = SceneManager.LoadSceneAsync(1);
+
+            systemScene.completed += OnloadComplete; 
+        }
+        private void OnloadComplete(AsyncOperation asyncOperation)
+        {
+            AsyncOperation StartScene = SceneManager.LoadSceneAsync(2, LoadSceneMode.Additive);
         }
         public void ExitGame()
         {

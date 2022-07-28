@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 834242529}
   - component: {fileID: 834242530}
-  m_Layer: 7
+  m_Layer: 13
   m_Name: FOV
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -66,7 +66,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3378688869464746080}
-  m_Layer: 7
+  m_Layer: 13
   m_Name: feet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -101,7 +101,8 @@ GameObject:
   - component: {fileID: 3378688869669455590}
   - component: {fileID: 3378688869669455591}
   - component: {fileID: 952738686}
-  m_Layer: 7
+  - component: {fileID: 6952359400788147647}
+  m_Layer: 13
   m_Name: insect01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -161,7 +162,7 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3378688869669455586}
-  m_BodyType: 0
+  m_BodyType: 1
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
@@ -226,6 +227,7 @@ MonoBehaviour:
   <CurrentState>k__BackingField: {fileID: 952738686}
   <IsAlive>k__BackingField: 0
   <TakeHit>k__BackingField: 0
+  <isCliff>k__BackingField: 0
 --- !u!114 &952738686
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -238,6 +240,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2e2e83e7ab2b6564d90bc620765e92c0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &6952359400788147647
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3378688869669455586}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4778d9df65dd2d94d801f974e3a3821b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 1
+  knockback: 5
 --- !u!1001 &641784875634033278
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -248,6 +264,10 @@ PrefabInstance:
     - target: {fileID: -8653719598885068355, guid: acac5caaaa1eec245a2c3fe679577a0c, type: 3}
       propertyPath: m_Name
       value: insect01 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: -8653719598885068355, guid: acac5caaaa1eec245a2c3fe679577a0c, type: 3}
+      propertyPath: m_Layer
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: -8172261211446949467, guid: acac5caaaa1eec245a2c3fe679577a0c, type: 3}
       propertyPath: m_LocalPosition.y
@@ -297,6 +317,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5583139260512307549, guid: acac5caaaa1eec245a2c3fe679577a0c, type: 3}
+      propertyPath: m_Layer
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 7884166061537564378, guid: acac5caaaa1eec245a2c3fe679577a0c, type: 3}
+      propertyPath: m_Layer
+      value: 13
+      objectReference: {fileID: 0}
     - target: {fileID: 8256075707432797398, guid: acac5caaaa1eec245a2c3fe679577a0c, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.08
@@ -308,6 +336,10 @@ PrefabInstance:
     - target: {fileID: 8468219238329981546, guid: acac5caaaa1eec245a2c3fe679577a0c, type: 3}
       propertyPath: m_LocalPosition.y
       value: -0.06000018
+      objectReference: {fileID: 0}
+    - target: {fileID: 8727091967253889458, guid: acac5caaaa1eec245a2c3fe679577a0c, type: 3}
+      propertyPath: m_Layer
+      value: 13
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 4843985084834002234, guid: acac5caaaa1eec245a2c3fe679577a0c, type: 3}
@@ -326,6 +358,10 @@ PrefabInstance:
     - target: {fileID: 2272926321001667118, guid: 0c83594342ec0ad449f0c44bfab49085, type: 3}
       propertyPath: m_Name
       value: Hit effect
+      objectReference: {fileID: 0}
+    - target: {fileID: 2272926321001667118, guid: 0c83594342ec0ad449f0c44bfab49085, type: 3}
+      propertyPath: m_Layer
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 2272926321001667118, guid: 0c83594342ec0ad449f0c44bfab49085, type: 3}
       propertyPath: m_IsActive

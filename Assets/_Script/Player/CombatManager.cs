@@ -7,7 +7,6 @@ namespace Script.Player
 {
     public class CombatManager : MonoBehaviour,IDamageable
     {
-        private HealthSystem healthSystem;
         [SerializeField] private PlayerBase playerBase;
         [SerializeField] private HealthEventChannel healthEvent;
         [SerializeField] private GameObject healEffect;
@@ -38,15 +37,12 @@ namespace Script.Player
         #region setup
         private void Awake()
         {
-            healthSystem = new HealthSystem(Status.MaxHealth,Status.MaxMana);
             GetHit = false;
         }
         private void Start()
         {
-            Status.health = Status.MaxHealth;
-            Status.mana = Status.MaxMana;
+            Status.SetUp();
 
-            healthEvent?.RiseEvent(healthSystem);
             infoEvent.RiseEvent(CurrentAttackType);
             healEffect?.SetActive(false);
 
@@ -82,7 +78,7 @@ namespace Script.Player
         {
             if (Status.mana - skillCost < 0) return;
 
-            Status.mana = healthSystem.ManaUse(skillCost);
+            Status.mana = Status.ManaUse(skillCost);
             float Distance = 2f;
             float front = input.LatesDirection * Distance;
             Vector2 InputDir = new Vector2(transform.position.x + front, transform.position.y);
@@ -92,7 +88,7 @@ namespace Script.Player
         public void Heal(float amount)
         {
             StartCoroutine(IHealEffect());
-            Status.Health = healthSystem.Heal(amount);
+            Status.Health = Status.Heal(amount);
         }
         IEnumerator IHealEffect()
         {
@@ -167,7 +163,7 @@ namespace Script.Player
             if (Invincible) return;
 
             CameraManager.Instance.ScreenShake(1f, 0.3f, 0.2f);
-            Status.Health = healthSystem.Damage(damage);
+            Status.Damage(damage);
 
             PrintDamage(damage);
             StartCoroutine(TakeHit(0.5f));
@@ -179,7 +175,7 @@ namespace Script.Player
         {
             print("<color=red> Takedamage = </color>" + damage.Damage
                + "\n <color=green> Health </color> = " + Status.Health
-               + " <color=red> Health % </color> = " + (healthSystem.GetHealthNormalized() * 100) + "%");
+               + " <color=red> Health % </color> = " + (Status.GetHealthNormalized() * 100) + "%");
         }
         private void CalculateKnockbackTaken(DamageInfo damage)
         {

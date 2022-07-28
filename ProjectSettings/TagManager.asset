@@ -8,7 +8,7 @@ TagManager:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Event
   - Water
   - UI
   - Player
@@ -17,8 +17,8 @@ TagManager:
   - PlayerGhost
   - Effect
   - Skill
-  - 
-  - 
+  - Destroyable
+  - EnemyBlock
   - 
   - 
   - 
@@ -53,9 +53,6 @@ TagManager:
   - name: Ground
     uniqueID: 182484835
     locked: 0
-  - name: Foreground
-    uniqueID: 3069202887
-    locked: 0
   - name: Enemy
     uniqueID: 2317220185
     locked: 0
@@ -64,4 +61,7 @@ TagManager:
     locked: 0
   - name: Effect
     uniqueID: 2962544891
+    locked: 0
+  - name: Foreground
+    uniqueID: 3069202887
     locked: 0

@@ -48,7 +48,6 @@ namespace Script.Player
             StopCoroutine(decay);
             if (damage.Type == DamageInfo.AttackType.Sword)
             {
-                print("attack by sword");
                 takeHit = true;
                 //Instantiate slash and destroy this
                 var sWave = slashWave.GetComponent<SlashWave>();
@@ -58,7 +57,6 @@ namespace Script.Player
                 Destroy(gameObject);
             } else if (damage.Type == DamageInfo.AttackType.Lance)
             {
-                print("attack by Lance");
                 var lance = bigLance.GetComponent<BigLance>();
                 lance.Diraction = (transform.position - damage.AttackerPosition).normalized.x;
                 

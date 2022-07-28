@@ -9,7 +9,7 @@ namespace Script.Player
         public Sword(float damage, PlayerBase playerBase) : base(damage, playerBase)
         {
             Maxcombo = 3;
-            KnockBackValue = 0;
+            KnockBackValue = 5;
         }
         
         public override void Attack(int currentCombo,float attackDirection)
@@ -18,13 +18,16 @@ namespace Script.Player
             {
                 case 1:
                     playerBase.Animator.Play("Attack1");
+                    KnockBackValue = 5;
                     break;
                 case 2:
                     playerBase.Animator.Play("Attack2");
+                    KnockBackValue = 5;
                     break;
                 case 3:
                     playerBase.Animator.Play("Attack3");
-                    playerBase.StartCoroutine(playerBase.IMove(10, 1, attackDirection));
+                    KnockBackValue = 10;
+                    //playerBase.StartCoroutine(playerBase.IMove(10, 1, attackDirection));
                     break;
                 default:
                     break;

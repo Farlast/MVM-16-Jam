@@ -23,7 +23,7 @@ namespace Script.Player
             {
                 SwitchState(_factory.Dash());
             }
-            else if(Ctx.InputMapPress.RawAttackInput && !Ctx.InputMapPress.HoldAttack && !Ctx.Attacking)
+            else if(Ctx.InputMapPress.RawAttackInput && !Ctx.Attacking)
             {
                 SwitchState(_factory.AirAttack());
             }

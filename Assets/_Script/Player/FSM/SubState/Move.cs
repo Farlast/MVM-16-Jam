@@ -1,4 +1,6 @@
 ﻿using UnityEngine;
+using System.Collections;
+
 namespace Script.Player
 {
     class Move : State
@@ -18,6 +20,7 @@ namespace Script.Player
         public override void OnStateEnter()
         {
             Ctx.Animator.SetBool("Run", true);
+            Ctx.PlayRunSound();
         }
         public override void OnStateRun()
         {
@@ -28,6 +31,7 @@ namespace Script.Player
         public override void OnStateExit()
         {
             Ctx.Animator.SetBool("Run", false);
+            Ctx.StopRunSound();
         }
 
         public override void InitializeSubState()
@@ -36,7 +40,6 @@ namespace Script.Player
         }
         private void UpdateMove()
         {
-
             Ctx.SpeedAtTimeCurve += Time.deltaTime;
             Ctx.Currentspeed = Ctx.MoveVelocity.Evaluate(Ctx.SpeedAtTimeCurve);
             Ctx.Currentspeed *= Ctx.Status.Speed;
